@@ -29,12 +29,6 @@ int flag[4];
 
 int main()
 {     
-	flag[0] = false;
-	flag[1] = false;
-	flag[2] = false;
-	flag[3] = false;
-	flag[4] = false;
-	
      _beginthread(thread1,0,NULL); // chama a função e faz dela uma thread
      _beginthread(thread2,0,NULL); // chama a função e faz dela uma thread
      _beginthread(thread3,0,NULL); // chama a função e faz dela uma thread
@@ -68,7 +62,7 @@ void thread2(void *ignored) // Observe que a função não tem o parâmetro ponteiro
 {
 	int i = 1;
 	flag[1] = true;
-	turn = 3;
+	turn = 0;
     for(;;){
     	if(flag[1] == true && turn != 1){
 		    valor++;
@@ -86,7 +80,7 @@ void thread3(void *ignored) // Observe que a função não tem o parâmetro ponteiro
 {
 	int i = 1;
 	flag[2] = true;
-	turn = 2;
+	turn = 1;
     for(;;){
     	if(flag[2] == true && turn != 2){
 	     	valor++;
@@ -105,7 +99,7 @@ void thread4(void *ignored) // Observe que a função não tem o parâmetro ponteiro
 {
 	int i = 1;
 	flag[3] = true;
-	turn = 1;
+	turn = 2;
    for(;;){
    		if(flag[3] == true && turn != 3){
 	   	 	valor++;
@@ -123,7 +117,7 @@ void thread5(void *ignored) // Observe que a função não tem o parâmetro ponteiro
 {
 	int i = 1;
 	flag[4] = true;
-	turn = 0;
+	turn = 3;
     for(;;){
     	if(flag[4] == true && turn != 4){
 	     	valor++;
